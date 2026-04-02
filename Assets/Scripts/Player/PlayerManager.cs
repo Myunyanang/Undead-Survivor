@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
     SpriteRenderer spriter;
     Rigidbody2D rb;
     Animator anim;
-    Vector2 moveVec;
+    public Vector2 moveVec;
 
     public float speed = 4;
 
