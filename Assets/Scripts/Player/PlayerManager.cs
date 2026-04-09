@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
-    PlayerInput playerInput;
+    public PlayerInput playerInput;
     SpriteRenderer spriter;
     Rigidbody2D rb;
     Animator anim;
