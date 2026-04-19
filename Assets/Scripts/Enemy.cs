@@ -4,11 +4,11 @@ using UnityEngine.Rendering.Universal;
 public class Enemy : MonoBehaviour
 {
     public float speed;
-    public Rigidbody2D target;
     bool isLive = true;
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
+    Rigidbody2D target;
 
     void Awake()
     {
@@ -33,5 +33,10 @@ public class Enemy : MonoBehaviour
             return;
 
         spriter.flipX = transform.position.x > target.position.x;
+    }
+
+    void OnEnable()
+    {
+        target = Gamemanager.instance.player.rb;
     }
 }

@@ -2,12 +2,29 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public Transform[] spwnPoint;
+
+    float timer = 0f;
+
+    void Awake()
+    {
+        spwnPoint = GetComponentsInChildren<Transform>();
+    }
+
     void Update()
     {
-        if(Input.GetButtonDown("Jump"))
+        timer += Time.deltaTime;
+
+        if (timer > 0.5f)
         {
-            Gamemanager.instance.pool.Get(1);
-            //나중에 뉴인풋으로 바꾸기
+            timer = 0f;
+            Spawn();
         }
+    }
+
+    void Spawn()
+    {
+        GameObject enemy = Gamemanager.instance.pool.Get(Random.Range(0, 2));
+        enemy.transform.position = spwnPoint[Random.Range(1, spwnPoint.Length)].position;
     }
 }

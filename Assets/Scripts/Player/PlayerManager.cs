@@ -5,10 +5,10 @@ public class PlayerManager : MonoBehaviour
 {
     public PlayerInput playerInput;
     SpriteRenderer spriter;
-    Rigidbody2D rb;
     Animator anim;
-    public Vector2 moveVec;
 
+    public Rigidbody2D rb;
+    public Vector2 moveVec;
     public float speed = 4;
 
     void Start()
@@ -19,17 +19,24 @@ public class PlayerManager : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    
+
     void Update()
     {
         rb.linearVelocity = new Vector2(moveVec.x * speed, moveVec.y * speed);
-        spriter.flipX = (moveVec.x > 0 ? false : true); //¸ØÃèÀ» ¶§ ÇÃ¸³ Ç®¸®´Â °Å ÇØ°áÇØ¾ß ÇÔ.
+        spriter.flipX = (moveVec.x > 0 ? false : true); //ë°”ë¼ë³´ëŠ” ë°©í–¥ìœ¼ë¡œ ì˜¤ë¸Œì íŠ¸ë¥¼ í”Œë¦½ì‹œí‚´
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         moveVec = context.ReadValue<Vector2>();
-        if(context.phase == InputActionPhase.Started) { anim.SetBool("isRun", true); }
-        else if(context.phase == InputActionPhase.Canceled) { anim.SetBool("isRun", false); }
+        if (context.phase == InputActionPhase.Started) { anim.SetBool("isRun", true); }
+        else if (context.phase == InputActionPhase.Canceled) { anim.SetBool("isRun", false); }
     }
+
+    /*
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started) { Gamemanager.instance.pool.Get(1); }
+    }
+    */
 }
