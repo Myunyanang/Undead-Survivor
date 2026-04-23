@@ -150,7 +150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PoolManager
   prefabs:
   - {fileID: 2836583408499801191, guid: 2b3559cb0cf0eed4a9193a57abb568e4, type: 3}
-  - {fileID: 889789771493837701, guid: 40fdd4025409441428e5cdb85d752c9b, type: 3}
 --- !u!4 &195124333
 Transform:
   m_ObjectHideFlags: 0
@@ -14223,6 +14222,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
   spwnPoint: []
+  spawnData:
+  - spawnTime: 0.7
+    spriteType: 0
+    health: 10
+    speed: 1.5
+  - spawnTime: 0.2
+    spriteType: 1
+    health: 15
+    speed: 2.4
 --- !u!1 &1862883078
 GameObject:
   m_ObjectHideFlags: 0
@@ -14267,6 +14275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df78ee59adc99b419d030afe960c6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gamemanager
+  gameTime: 0
+  maxGameTime: 120
   pool: {fileID: 195124332}
   player: {fileID: 292071407}
 --- !u!1 &1929675424
